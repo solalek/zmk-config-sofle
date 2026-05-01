@@ -23,4 +23,4 @@ include:
     shield: sofle_left
   - board: nice_nano_v2
     shield: sofle_right
-  - board: nrf52840dongle_nrf52840
+  # - board: nrf52840dongle_nrf52840
