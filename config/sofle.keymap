@@ -48,7 +48,9 @@
                    &kp LGUI  &kp LALT  &kp SPACE  &mo 1   &kp ESC       &kp DEL  &mo 2   &kp ENTER  &kp RIGHT_WIN  &kp BACKSLASH
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>,
+                <&inc_dec_kp PG_DN PG_UP>;
         };
 
         lower_layer {
@@ -84,11 +86,11 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3      &bt BT_SEL 4                             &trans     &trans    &trans    &trans     &trans   &trans
-&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &kp LEFT_BRACKET  &kp F                                    &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
-&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans            &kp CLCK                                 &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE       &trans        &rgb_ug RGB_TOG    &trans  &trans     &trans    &trans    &trans     &trans   &trans
-                          &trans        &trans        &trans            &trans        &trans             &trans  &trans     &trans    &trans    &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3      &bt BT_SEL 4                             &trans     &trans    &trans  &trans     &trans   &trans
+&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &kp LEFT_BRACKET  &kp F                                    &kp PG_UP  &trans    &trans  &trans     &kp N0   &trans
+&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans            &kp CLCK                                 &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT  &kp DEL  &kp BSPC
+&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE       &trans        &rgb_ug RGB_TOG    &trans  &trans     &trans    &trans  &trans     &trans   &trans
+                          &trans        &trans        &trans            &trans        &trans             &trans  &trans     &trans    &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
