@@ -24,8 +24,19 @@ include:
   # -----------------------------------------
   # 1. Прошивка для донгла (Центральное устройство)
   # -----------------------------------------
+  # - board: nrf52840dongle_nrf52840
+  #   shield: sofle_dongle
+# 1. Прошивка для донгла (Центральное устройство)
   - board: nrf52840dongle_nrf52840
     shield: sofle_dongle
+    cmake-args: -DCONFIG_BUILD_OUTPUT_BIN=n -DCONFIG_BUILD_OUTPUT_HEX=y
+
+  # ... (здесь идут sofle_left и sofle_right без изменений) ...
+
+  # 3. Файлы для сброса настроек (Settings Reset)
+  - board: nrf52840dongle_nrf52840
+    shield: settings_reset
+    cmake-args: -DCONFIG_BUILD_OUTPUT_BIN=n -DCONFIG_BUILD_OUTPUT_HEX=y
 
   # -----------------------------------------
   # 2. Основная клавиатура (Периферия)
@@ -43,8 +54,8 @@ include:
   # 3. Файлы для сброса настроек (Settings Reset)
   # Нам нужны файлы сброса для обоих типов плат!
   # -----------------------------------------
-  - board: nrf52840dongle_nrf52840
-    shield: settings_reset
+  # - board: nrf52840dongle_nrf52840
+  #   shield: settings_reset
 
   - board: nice_nano_v2
     shield: settings_reset
