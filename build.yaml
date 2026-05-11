@@ -17,12 +17,43 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
+# This file generates the GitHub Actions matrix.
+# ... (комментарии в начале файла можно оставить) ...
 ---
 include:
+  # -----------------------------------------
+  # 1. Прошивка для донгла (Центральное устройство)
+  # -----------------------------------------
+  - board: nrf52840dongle_nrf52840
+    shield: sofle_dongle
+
+  # -----------------------------------------
+  # 2. Основная клавиатура (Периферия)
+  # Добавляем cmake-args, чтобы превратить половинки в периферийные
+  # -----------------------------------------
   - board: nice_nano_v2
     shield: sofle_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
   - board: nice_nano_v2
     shield: sofle_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  # -----------------------------------------
+  # 3. Файлы для сброса настроек (Settings Reset)
+  # Нам нужны файлы сброса для обоих типов плат!
+  # -----------------------------------------
+  - board: nrf52840dongle_nrf52840
+    shield: settings_reset
+
   - board: nice_nano_v2
     shield: settings_reset
+
+# include:
+#   - board: nice_nano_v2
+#     shield: sofle_left
+#   - board: nice_nano_v2
+#     shield: sofle_right
+#   - board: nice_nano_v2
+#     shield: settings_reset
   # - board: nrf52840dongle_nrf52840
