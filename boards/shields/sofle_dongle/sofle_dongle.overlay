@@ -24,5 +24,30 @@
             RC(6,0) RC(6,1) RC(6,2) RC(6,3) RC(6,4) RC(6,5)  RC(7,5) RC(7,4) RC(7,3) RC(7,2) RC(7,1) RC(7,0)
                     RC(8,0) RC(8,1) RC(8,2) RC(8,3) RC(8,4)  RC(9,4) RC(9,3) RC(9,2) RC(9,1) RC(9,0)
         >;
+    }; // <-- Вот эта скобка закрывает default_transform
+
+    // Фантомные энкодеры для донгла, чтобы он понимал сигналы от половинок
+    left_encoder: encoder_left {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 22 0>;
+        b-gpios = <&gpio0 24 0>;
+        steps = <80>;
+        status = "okay";
     };
-};
+
+    right_encoder: encoder_right {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 31 0>;
+        b-gpios = <&gpio1 0 0>;
+        steps = <80>;
+        status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <20>;
+    };
+}; // <-- Эта скобка закрывает корневой узел /
+
+
